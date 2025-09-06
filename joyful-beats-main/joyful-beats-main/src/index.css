@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Joyable Design System - Vibrant 3D Music Platform */
+
+@layer base {
+  :root {
+    /* Joyable Brand Colors - HSL Format */
+    --background: 240 25% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 20% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 240 20% 15%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Primary Brand Colors - Vibrant Purple */
+    --primary: 270 70% 60%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 270 80% 70%;
+
+    /* Secondary Colors - Electric Pink */
+    --secondary: 320 85% 65%;
+    --secondary-foreground: 0 0% 98%;
+
+    /* Accent Colors - Warm Orange */
+    --accent: 25 95% 65%;
+    --accent-foreground: 240 25% 8%;
+
+    /* Joy Character Colors */
+    --joy-primary: 200 100% 70%;
+    --joy-secondary: 280 80% 75%;
+
+    /* Muted Colors */
+    --muted: 240 15% 20%;
+    --muted-foreground: 0 0% 70%;
+
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 15% 25%;
+    --input: 240 15% 18%;
+    --radius: 1rem;
+
+    /* Joyable Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)));
+    --gradient-joy: linear-gradient(135deg, hsl(var(--joy-primary)), hsl(var(--joy-secondary)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--accent)));
+    
+    /* 3D Effects & Shadows */
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
+    --shadow-card: 0 20px 40px -10px hsl(0 0% 0% / 0.4);
+    --shadow-float: 0 10px 30px -5px hsl(var(--primary) / 0.2);
+    
+    /* Animation Timing */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-['Inter'];
+  }
+}
+
+@layer components {
+  /* Joyable 3D Card Component */
+  .joy-card {
+    @apply relative overflow-hidden rounded-2xl backdrop-blur-sm;
+    background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--card) / 0.8));
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+  }
+
+  .joy-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-float);
+  }
+
+  /* Floating Animation */
+  .joy-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Joy Character Glow */
+  .joy-glow {
+    filter: drop-shadow(0 0 20px hsl(var(--joy-primary) / 0.5));
+  }
+}
